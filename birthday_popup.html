@@ -1,0 +1,113 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Happy Birthday Popup</title>
+       <style>
+             /* Set a background image for the entire page */
+            body {
+                background-image: url('Downloads/maxresdefault.jpg'); /* Replace with your image URL */
+                background-size: cover;  /* Ensure the background image covers the entire screen */
+                background-position: center; /* Center the image */
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Arial', sans-serif;
+                overflow: hidden; /* Prevent overflow due to confetti */
+            }
+
+            /* Style the popup */
+            .popup {
+                background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+                padding: 30px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+                max-width: 400px;
+                width: 100%;
+                animation: floatUp 3s ease-in-out infinite; /* Floating animation */
+            }
+
+            .popup h1 {
+               color: #FF69B4;
+               font-size: 36px;
+               animation: bounceText 1.5s infinite; /* Bounce animation for text */
+            }
+
+            .popup p {
+               font-size: 18px;
+               color: #333;
+            }
+
+            .popup button {
+                background-color: #FF69B4;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 20px;
+                transition: background-color 0.3s;
+            }
+
+            .popup button:hover {
+                 background-color: #FF1493;
+            }
+            /* Floating effect */
+            @keyframes floatUp {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0); }
+            }
+
+            /* Bounce text effect */
+            @keyframes bounceText {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="popup">
+           <h1>Happy Birthday Saurabh!</h1>
+           <p>Wishing you a wonderful day filled with lund, Boobs, and laughter!</p>
+           <button onclick="alert('Thank you!')">Close</button>
+        </div>
+        <!-- Include the confetti effect JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
+        <script>
+            // Function to trigger confetti effect
+            function celebrate() {
+                var count = 200;
+                var defaults = {
+                    origin: { y: 0.7 }
+                };
+                function fireConfetti() {
+                    confetti(Object.assign({}, defaults, {
+                        particleCount: count,
+                        spread: 26,
+                        angle: 60,
+                        origin: { x: 0 }
+                    }));
+                    confetti(Object.assign({}, defaults, {
+                        particleCount: count,
+                        spread: 26,
+                        angle: 120,
+                        origin: { x: 1 }
+                    }));
+                }
+                fireConfetti();
+                setInterval(fireConfetti, 500); // Repeat confetti every 500ms
+            }
+            
+            // Trigger celebration when page loads
+            window.onload = celebrate;
+        </script>
+    </body>
+    </html>
+    
